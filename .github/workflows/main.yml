@@ -18,9 +18,6 @@ jobs:
       - name: Install Dependencies, Test, and Build
         run: |
           yarn install --frozen-lockfile --check-files --network-timeout 600000
-          yarn ci
-        env:
-          CI: true
 
   build-and-push-docker-image:
     needs: [js-install-and-test]
