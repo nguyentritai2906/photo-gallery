@@ -3,9 +3,9 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY yarn.lock ./
 COPY src ./src
-COPY public ./public
+# COPY public ./public
 RUN yarn install --frozen-lockfile --check-files --network-timeout 600000
-RUN yarn build --noninteractive
+RUN yarn build
 RUN yarn install --frozen-lockfile --check-files --production --modules-folder node_modules_prod --network-timeout 600000
 
 FROM node:20.11.1-alpine
